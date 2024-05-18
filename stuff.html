@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Protected Link</title>
+    <style>
+        /* Styles for the modal */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1; /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgb(0,0,0); /* Fallback color */
+            background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+            padding-top: 60px;
+        }
+
+        /* Modal Content/Box */
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto; /* 5% from the top and centered */
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%; /* Could be more or less, depending on screen size */
+        }
+    </style>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- The link -->
+    <a href="#" onclick="showPasswordPrompt()">Access Protected Page</a>
+
+    <!-- The modal -->
+    <div id="passwordModal" class="modal">
+        <div class="modal-content">
+            <span onclick="closePasswordPrompt()" style="float:right; cursor:pointer;">&times;</span>
+            <h2>Please enter the password</h2>
+            <input type="password" id="passwordInput" placeholder="Password">
+            <button onclick="checkPassword()">Submit</button>
+            <p id="errorMessage" style="color: red; display: none;">Incorrect password. Please try again.</p>
+        </div>
+    </div>
+
+    <script>
+        // Password to access the protected page
+        var correctPassword = "your_password"; // Change this to your desired password
+
+        // Function to show the password prompt modal
+        function showPasswordPrompt() {
+            document.getElementById('passwordModal').style.display = 'block';
+        }
+
+        // Function to close the password prompt modal
+        function closePasswordPrompt() {
+            document.getElementById('passwordModal').style.display = 'none';
+            document.getElementById('errorMessage').style.display = 'none'; // Hide error message
+            document.getElementById('passwordInput').value = ''; // Clear password input field
+        }
+
+        // Function to check the entered password
+        function checkPassword() {
+            var enteredPassword = document.getElementById('passwordInput').value;
+            if (enteredPassword === correctPassword) {
+                // Correct password, redirect to the protected page
+                window.location.href = "protected_page.html";
+            } else {
+                // Incorrect password, show error message
+                document.getElementById('errorMessage').style.display = 'block';
+            }
+        }
+    </script>
+</body>
+</html>
