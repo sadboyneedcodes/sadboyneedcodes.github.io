@@ -46,10 +46,9 @@
     </nav>-->
     <div>
         <a href="research.html"> <h2>Research</h2></a>
-        <a href="stuff.html"> <h2>Stuff</h2></a>
     </div>
     <!-- The link -->
-    <a href="#" onclick="showPasswordPrompt()">Access Protected Page</a>
+    <a href="#" onclick="showPasswordPrompt()">stuff</a>
 
     <!-- The modal -->
     <div id="passwordModal" class="modal">
@@ -64,7 +63,7 @@
 
     <script>
         // Password to access the protected page
-        var correctPassword = "your_password"; // Change this to your desired password
+        var correctPassword = "SourCherry13!"; // Change this to your desired password
 
         // Function to show the password prompt modal
         function showPasswordPrompt() {
@@ -83,7 +82,7 @@
             var enteredPassword = document.getElementById('passwordInput').value;
             if (enteredPassword === correctPassword) {
                 // Correct password, redirect to the protected page
-                window.location.href = "protected_page.html";
+                window.location.href = "stuff.html";
             } else {
                 // Incorrect password, show error message
                 document.getElementById('errorMessage').style.display = 'block';
